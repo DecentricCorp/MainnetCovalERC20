@@ -1,0 +1,5163 @@
+{
+  "contractName": "StorageMockWithStructs",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a7230582014d7f1c462c4a0102b2310f390090558a19987495b9cd594ed4ab986b84a2db60029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a7230582014d7f1c462c4a0102b2310f390090558a19987495b9cd594ed4ab986b84a2db60029",
+  "sourceMap": "1923:321:14:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1923:321:14;;;;;;;",
+  "deployedSourceMap": "1923:321:14:-;;;;;",
+  "source": "pragma solidity ^0.4.24;\n\n// Added just for having a circular reference\nimport \"./StorageMocks3.sol\";\n\ncontract SimpleStorageMock {\n  uint256 public my_public_uint256;\n  string internal my_internal_string;\n  uint8 private my_private_uint8;\n  int8 private my_private_uint16;\n  bool private my_private_bool;\n  uint private my_private_uint;\n  address private my_private_address;\n}\n\ncontract StorageMockWithBytes {\n  bytes internal my_bytes;\n  bytes8 internal my_bytes8;\n  bytes32 internal my_bytes32;\n}\n\ncontract StorageMockWithConstants {\n  uint256 public constant my_public_uint256 = 256;\n  string internal constant my_internal_string = \"foo\";\n  uint8 private constant my_private_uint8 = 8;\n}\n\ncontract StorageMockWithArrays {\n  uint256[] public my_public_uint256_dynarray;\n  string[] internal my_internal_string_dynarray;\n  address[] private my_private_address_dynarray;\n  int8[10] public my_public_int8_staticarray;\n  bool[20] internal my_internal_bool_staticarray;\n  uint[30] private my_private_uint_staticarray;\n}\n\ncontract StorageMockWithMappings {\n  mapping(uint256 => string) public my_mapping;\n  mapping(uint256 => mapping(string => address)) internal my_nested_mapping;\n  mapping(uint256 => bool[]) private my_mapping_with_arrays;\n}\n\ncontract StorageMockWithFunctions {\n  function(uint) internal my_fun;\n  function(string, string)[] internal my_fun_dynarray;\n  function(uint) returns (address)[10] internal my_fun_staticarray;\n  mapping(uint256 => function(bool)) internal my_fun_mapping;\n}\n\ncontract StorageMockWithContracts {\n  SimpleStorageMock public my_contract;\n  SimpleStorageMock[] private my_contract_dynarray;\n  SimpleStorageMock[10] internal my_contract_staticarray;\n  mapping(uint256 => SimpleStorageMock) private my_contract_mapping;\n  mapping(uint256 => SimpleStorageMock[]) private my_contract_dynarray_mapping;\n  mapping(uint256 => SimpleStorageMock[10]) private my_contract_staticarray_mapping;\n}\n\ncontract StorageMockWithStructs {\n  struct MyStruct {\n    uint256 struct_uint256;\n    string struct_string;\n    address struct_address;\n  }  \n\n  MyStruct internal my_struct;\n  MyStruct[] private my_struct_dynarray;\n  MyStruct[10] internal my_struct_staticarray;\n  mapping(uint256 => MyStruct) private my_struct_mapping;\n}\n\ncontract StorageMockWithEnums {\n  enum MyEnum { State1, State2 }\n \n  MyEnum public my_enum;\n  MyEnum[] internal my_enum_dynarray;\n  MyEnum[10] internal my_enum_staticarray;\n  mapping(uint256 => MyEnum) private my_enum_mapping;\n}\n\ncontract StorageMockWithComplexStructs {\n  struct MyStruct {\n    uint256[] uint256_dynarray;\n    mapping(string => StorageMockWithEnums.MyEnum) mapping_enums;\n    StorageMockWithStructs.MyStruct other_struct;\n  }\n\n  MyStruct internal my_struct;\n  StorageMockWithStructs.MyStruct internal my_other_struct;\n}\n\ncontract StorageMockWithRecursiveStructs {\n  struct MyStruct {\n    OtherStruct[] other_structs;\n  }\n\n  struct OtherStruct {\n    MyStruct my_struct;\n  }\n\n  MyStruct internal my_struct;\n}\n\ncontract StorageMockMixed is StorageMockWithStructs, StorageMockWithEnums, SimpleStorageMock {\n}\n",
+  "sourcePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks.sol",
+  "ast": {
+    "absolutePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks.sol",
+    "exportedSymbols": {
+      "SimpleStorageMock": [
+        1683
+      ],
+      "StorageMockMixed": [
+        1867
+      ],
+      "StorageMockWithArrays": [
+        1722
+      ],
+      "StorageMockWithBytes": [
+        1690
+      ],
+      "StorageMockWithComplexStructs": [
+        1850
+      ],
+      "StorageMockWithConstants": [
+        1700
+      ],
+      "StorageMockWithContracts": [
+        1797
+      ],
+      "StorageMockWithEnums": [
+        1835
+      ],
+      "StorageMockWithFunctions": [
+        1772
+      ],
+      "StorageMockWithMappings": [
+        1738
+      ],
+      "StorageMockWithRecursiveStructs": [
+        1860
+      ],
+      "StorageMockWithStructs": [
+        1818
+      ]
+    },
+    "id": 1868,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1667,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks3.sol",
+        "file": "./StorageMocks3.sol",
+        "id": 1668,
+        "nodeType": "ImportDirective",
+        "scope": 1868,
+        "sourceUnit": 1942,
+        "src": "72:29:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1683,
+        "linearizedBaseContracts": [
+          1683
+        ],
+        "name": "SimpleStorageMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1670,
+            "name": "my_public_uint256",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "134:32:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1669,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "134:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1672,
+            "name": "my_internal_string",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "170:34:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 1671,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "170:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1674,
+            "name": "my_private_uint8",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "208:30:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 1673,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "208:5:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1676,
+            "name": "my_private_uint16",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "242:30:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_int8",
+              "typeString": "int8"
+            },
+            "typeName": {
+              "id": 1675,
+              "name": "int8",
+              "nodeType": "ElementaryTypeName",
+              "src": "242:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_int8",
+                "typeString": "int8"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1678,
+            "name": "my_private_bool",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "276:28:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 1677,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "276:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1680,
+            "name": "my_private_uint",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "308:28:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1679,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "308:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1682,
+            "name": "my_private_address",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "340:34:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 1681,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "340:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "103:274:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1690,
+        "linearizedBaseContracts": [
+          1690
+        ],
+        "name": "StorageMockWithBytes",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1685,
+            "name": "my_bytes",
+            "nodeType": "VariableDeclaration",
+            "scope": 1690,
+            "src": "413:23:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes_storage",
+              "typeString": "bytes"
+            },
+            "typeName": {
+              "id": 1684,
+              "name": "bytes",
+              "nodeType": "ElementaryTypeName",
+              "src": "413:5:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes_storage_ptr",
+                "typeString": "bytes"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1687,
+            "name": "my_bytes8",
+            "nodeType": "VariableDeclaration",
+            "scope": 1690,
+            "src": "440:25:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes8",
+              "typeString": "bytes8"
+            },
+            "typeName": {
+              "id": 1686,
+              "name": "bytes8",
+              "nodeType": "ElementaryTypeName",
+              "src": "440:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes8",
+                "typeString": "bytes8"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1689,
+            "name": "my_bytes32",
+            "nodeType": "VariableDeclaration",
+            "scope": 1690,
+            "src": "469:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 1688,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "469:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1868,
+        "src": "379:120:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1700,
+        "linearizedBaseContracts": [
+          1700
+        ],
+        "name": "StorageMockWithConstants",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 1693,
+            "name": "my_public_uint256",
+            "nodeType": "VariableDeclaration",
+            "scope": 1700,
+            "src": "539:47:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1691,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "539:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "323536",
+              "id": 1692,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "583:3:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_256_by_1",
+                "typeString": "int_const 256"
+              },
+              "value": "256"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "id": 1696,
+            "name": "my_internal_string",
+            "nodeType": "VariableDeclaration",
+            "scope": 1700,
+            "src": "590:51:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 1694,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "590:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "666f6f",
+              "id": 1695,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "636:5:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_41b1a0649752af1b28b3dc29a1556eee781e4a4c3a1f7f53f90fa834de098c4d",
+                "typeString": "literal_string \"foo\""
+              },
+              "value": "foo"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 1699,
+            "name": "my_private_uint8",
+            "nodeType": "VariableDeclaration",
+            "scope": 1700,
+            "src": "645:43:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 1697,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "645:5:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "38",
+              "id": 1698,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "687:1:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_8_by_1",
+                "typeString": "int_const 8"
+              },
+              "value": "8"
+            },
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "501:190:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1722,
+        "linearizedBaseContracts": [
+          1722
+        ],
+        "name": "StorageMockWithArrays",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1703,
+            "name": "my_public_uint256_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "728:43:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
+              "typeString": "uint256[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1701,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "728:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "id": 1702,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "728:9:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                "typeString": "uint256[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1706,
+            "name": "my_internal_string_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "775:45:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+              "typeString": "string[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1704,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "775:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "id": 1705,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "775:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                "typeString": "string[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1709,
+            "name": "my_private_address_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "824:45:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_$dyn_storage",
+              "typeString": "address[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1707,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "824:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "id": 1708,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "824:9:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                "typeString": "address[]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1713,
+            "name": "my_public_int8_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "873:42:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_int8_$10_storage",
+              "typeString": "int8[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1710,
+                "name": "int8",
+                "nodeType": "ElementaryTypeName",
+                "src": "873:4:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int8",
+                  "typeString": "int8"
+                }
+              },
+              "id": 1712,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1711,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "878:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "873:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_int8_$10_storage_ptr",
+                "typeString": "int8[10]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1717,
+            "name": "my_internal_bool_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "919:46:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_bool_$20_storage",
+              "typeString": "bool[20]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1714,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "919:4:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              },
+              "id": 1716,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3230",
+                "id": 1715,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "924:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "20"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "919:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_bool_$20_storage_ptr",
+                "typeString": "bool[20]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1721,
+            "name": "my_private_uint_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "969:44:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_uint256_$30_storage",
+              "typeString": "uint256[30]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1718,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "969:4:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "id": 1720,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3330",
+                "id": 1719,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "974:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "30"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "969:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_uint256_$30_storage_ptr",
+                "typeString": "uint256[30]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "693:323:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1738,
+        "linearizedBaseContracts": [
+          1738
+        ],
+        "name": "StorageMockWithMappings",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1726,
+            "name": "my_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "1055:44:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+              "typeString": "mapping(uint256 => string)"
+            },
+            "typeName": {
+              "id": 1725,
+              "keyType": {
+                "id": 1723,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1063:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1055:26:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+                "typeString": "mapping(uint256 => string)"
+              },
+              "valueType": {
+                "id": 1724,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "1074:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1732,
+            "name": "my_nested_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "1103:73:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_mapping$_t_string_memory_$_t_address_$_$",
+              "typeString": "mapping(uint256 => mapping(string => address))"
+            },
+            "typeName": {
+              "id": 1731,
+              "keyType": {
+                "id": 1727,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1111:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1103:46:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_mapping$_t_string_memory_$_t_address_$_$",
+                "typeString": "mapping(uint256 => mapping(string => address))"
+              },
+              "valueType": {
+                "id": 1730,
+                "keyType": {
+                  "id": 1728,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1130:6:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "1122:26:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_string_memory_$_t_address_$",
+                  "typeString": "mapping(string => address)"
+                },
+                "valueType": {
+                  "id": 1729,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1140:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1737,
+            "name": "my_mapping_with_arrays",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "1180:57:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_bool_$dyn_storage_$",
+              "typeString": "mapping(uint256 => bool[])"
+            },
+            "typeName": {
+              "id": 1736,
+              "keyType": {
+                "id": 1733,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1188:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1180:26:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_bool_$dyn_storage_$",
+                "typeString": "mapping(uint256 => bool[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 1734,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1199:4:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 1735,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "1199:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_bool_$dyn_storage_ptr",
+                  "typeString": "bool[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "1018:222:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1772,
+        "linearizedBaseContracts": [
+          1772
+        ],
+        "name": "StorageMockWithFunctions",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1744,
+            "name": "my_fun",
+            "nodeType": "VariableDeclaration",
+            "scope": 1772,
+            "src": "1280:30:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+              "typeString": "function (uint256)"
+            },
+            "typeName": {
+              "id": 1743,
+              "isDeclaredConst": false,
+              "nodeType": "FunctionTypeName",
+              "parameterTypes": {
+                "id": 1741,
+                "nodeType": "ParameterList",
+                "parameters": [
+                  {
+                    "constant": false,
+                    "id": 1740,
+                    "name": "",
+                    "nodeType": "VariableDeclaration",
+                    "scope": 1772,
+                    "src": "1289:4:14",
+                    "stateVariable": false,
+                    "storageLocation": "default",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "typeName": {
+                      "id": 1739,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1289:4:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "value": null,
+                    "visibility": "internal"
+                  }
+                ],
+                "src": "1288:6:14"
+              },
+              "payable": false,
+              "returnParameterTypes": {
+                "id": 1742,
+                "nodeType": "ParameterList",
+                "parameters": [],
+                "src": "1304:0:14"
+              },
+              "src": "1280:30:14",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                "typeString": "function (uint256)"
+              },
+              "visibility": "internal"
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1753,
+            "name": "my_fun_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1772,
+            "src": "1314:51:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_function_internal_nonpayable$_t_string_storage_ptr_$_t_string_storage_ptr_$returns$__$_$dyn_storage",
+              "typeString": "function (string,string)[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1751,
+                "isDeclaredConst": false,
+                "nodeType": "FunctionTypeName",
+                "parameterTypes": {
+                  "id": 1749,
+                  "nodeType": "ParameterList",
+                  "parameters": [
+                    {
+                      "constant": false,
+                      "id": 1746,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1323:6:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      },
+                      "typeName": {
+                        "id": 1745,
+                        "name": "string",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1323:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage_ptr",
+                          "typeString": "string"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 1748,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1331:6:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      },
+                      "typeName": {
+                        "id": 1747,
+                        "name": "string",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1331:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage_ptr",
+                          "typeString": "string"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "src": "1322:16:14"
+                },
+                "payable": false,
+                "returnParameterTypes": {
+                  "id": 1750,
+                  "nodeType": "ParameterList",
+                  "parameters": [],
+                  "src": "1338:0:14"
+                },
+                "src": "1314:25:14",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_internal_nonpayable$_t_string_storage_ptr_$_t_string_storage_ptr_$returns$__$",
+                  "typeString": "function (string,string)"
+                },
+                "visibility": "internal"
+              },
+              "id": 1752,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "1314:26:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_function_internal_nonpayable$_t_string_storage_ptr_$_t_string_storage_ptr_$returns$__$_$dyn_storage_ptr",
+                "typeString": "function (string,string)[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1763,
+            "name": "my_fun_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1772,
+            "src": "1369:64:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_function_internal_nonpayable$_t_uint256_$returns$_t_address_$_$10_storage",
+              "typeString": "function (uint256) returns (address)[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1760,
+                "isDeclaredConst": false,
+                "nodeType": "FunctionTypeName",
+                "parameterTypes": {
+                  "id": 1756,
+                  "nodeType": "ParameterList",
+                  "parameters": [
+                    {
+                      "constant": false,
+                      "id": 1755,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1378:4:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 1754,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1378:4:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "src": "1377:6:14"
+                },
+                "payable": false,
+                "returnParameterTypes": {
+                  "id": 1759,
+                  "nodeType": "ParameterList",
+                  "parameters": [
+                    {
+                      "constant": false,
+                      "id": 1758,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1393:7:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 1757,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1393:7:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "src": "1392:9:14"
+                },
+                "src": "1369:33:14",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$_t_address_$",
+                  "typeString": "function (uint256) returns (address)"
+                },
+                "visibility": "internal"
+              },
+              "id": 1762,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1761,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "1402:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "1369:36:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_function_internal_nonpayable$_t_uint256_$returns$_t_address_$_$10_storage_ptr",
+                "typeString": "function (uint256) returns (address)[10]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1771,
+            "name": "my_fun_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1772,
+            "src": "1437:58:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_function_internal_nonpayable$_t_bool_$returns$__$_$",
+              "typeString": "mapping(uint256 => function (bool))"
+            },
+            "typeName": {
+              "id": 1770,
+              "keyType": {
+                "id": 1764,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1445:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1437:34:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_function_internal_nonpayable$_t_bool_$returns$__$_$",
+                "typeString": "mapping(uint256 => function (bool))"
+              },
+              "valueType": {
+                "id": 1769,
+                "isDeclaredConst": false,
+                "nodeType": "FunctionTypeName",
+                "parameterTypes": {
+                  "id": 1767,
+                  "nodeType": "ParameterList",
+                  "parameters": [
+                    {
+                      "constant": false,
+                      "id": 1766,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1465:4:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "typeName": {
+                        "id": 1765,
+                        "name": "bool",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1465:4:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "src": "1464:6:14"
+                },
+                "payable": false,
+                "returnParameterTypes": {
+                  "id": 1768,
+                  "nodeType": "ParameterList",
+                  "parameters": [],
+                  "src": "1470:0:14"
+                },
+                "src": "1456:15:14",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_internal_nonpayable$_t_bool_$returns$__$",
+                  "typeString": "function (bool)"
+                },
+                "visibility": "internal"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1868,
+        "src": "1242:256:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1797,
+        "linearizedBaseContracts": [
+          1797
+        ],
+        "name": "StorageMockWithContracts",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1774,
+            "name": "my_contract",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1538:36:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+              "typeString": "contract SimpleStorageMock"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1773,
+              "name": "SimpleStorageMock",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1683,
+              "src": "1538:17:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                "typeString": "contract SimpleStorageMock"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1777,
+            "name": "my_contract_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1578:48:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage",
+              "typeString": "contract SimpleStorageMock[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1775,
+                "name": "SimpleStorageMock",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1683,
+                "src": "1578:17:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                  "typeString": "contract SimpleStorageMock"
+                }
+              },
+              "id": 1776,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "1578:19:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage_ptr",
+                "typeString": "contract SimpleStorageMock[]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1781,
+            "name": "my_contract_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1630:54:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage",
+              "typeString": "contract SimpleStorageMock[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1778,
+                "name": "SimpleStorageMock",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1683,
+                "src": "1630:17:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                  "typeString": "contract SimpleStorageMock"
+                }
+              },
+              "id": 1780,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1779,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "1648:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "1630:21:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage_ptr",
+                "typeString": "contract SimpleStorageMock[10]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1785,
+            "name": "my_contract_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1688:65:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_contract$_SimpleStorageMock_$1683_$",
+              "typeString": "mapping(uint256 => contract SimpleStorageMock)"
+            },
+            "typeName": {
+              "id": 1784,
+              "keyType": {
+                "id": 1782,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1696:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1688:37:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_contract$_SimpleStorageMock_$1683_$",
+                "typeString": "mapping(uint256 => contract SimpleStorageMock)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1783,
+                "name": "SimpleStorageMock",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1683,
+                "src": "1707:17:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                  "typeString": "contract SimpleStorageMock"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1790,
+            "name": "my_contract_dynarray_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1757:76:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage_$",
+              "typeString": "mapping(uint256 => contract SimpleStorageMock[])"
+            },
+            "typeName": {
+              "id": 1789,
+              "keyType": {
+                "id": 1786,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1765:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1757:39:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage_$",
+                "typeString": "mapping(uint256 => contract SimpleStorageMock[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "contractScope": null,
+                  "id": 1787,
+                  "name": "SimpleStorageMock",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1683,
+                  "src": "1776:17:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                    "typeString": "contract SimpleStorageMock"
+                  }
+                },
+                "id": 1788,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "1776:19:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage_ptr",
+                  "typeString": "contract SimpleStorageMock[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1796,
+            "name": "my_contract_staticarray_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1837:81:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage_$",
+              "typeString": "mapping(uint256 => contract SimpleStorageMock[10])"
+            },
+            "typeName": {
+              "id": 1795,
+              "keyType": {
+                "id": 1791,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1845:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1837:41:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage_$",
+                "typeString": "mapping(uint256 => contract SimpleStorageMock[10])"
+              },
+              "valueType": {
+                "baseType": {
+                  "contractScope": null,
+                  "id": 1792,
+                  "name": "SimpleStorageMock",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1683,
+                  "src": "1856:17:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                    "typeString": "contract SimpleStorageMock"
+                  }
+                },
+                "id": 1794,
+                "length": {
+                  "argumentTypes": null,
+                  "hexValue": "3130",
+                  "id": 1793,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "1874:2:14",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": null,
+                    "typeString": null
+                  },
+                  "value": "10"
+                },
+                "nodeType": "ArrayTypeName",
+                "src": "1856:21:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage_ptr",
+                  "typeString": "contract SimpleStorageMock[10]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "1500:421:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1818,
+        "linearizedBaseContracts": [
+          1818
+        ],
+        "name": "StorageMockWithStructs",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StorageMockWithStructs.MyStruct",
+            "id": 1804,
+            "members": [
+              {
+                "constant": false,
+                "id": 1799,
+                "name": "struct_uint256",
+                "nodeType": "VariableDeclaration",
+                "scope": 1804,
+                "src": "1981:22:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1798,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1981:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1801,
+                "name": "struct_string",
+                "nodeType": "VariableDeclaration",
+                "scope": 1804,
+                "src": "2009:20:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1800,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2009:6:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1803,
+                "name": "struct_address",
+                "nodeType": "VariableDeclaration",
+                "scope": 1804,
+                "src": "2035:22:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1802,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2035:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MyStruct",
+            "nodeType": "StructDefinition",
+            "scope": 1818,
+            "src": "1959:103:14",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1806,
+            "name": "my_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1818,
+            "src": "2068:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1804_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1805,
+              "name": "MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1804,
+              "src": "2068:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1809,
+            "name": "my_struct_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1818,
+            "src": "2099:37:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_MyStruct_$1804_storage_$dyn_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1807,
+                "name": "MyStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1804,
+                "src": "2099:8:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                  "typeString": "struct StorageMockWithStructs.MyStruct"
+                }
+              },
+              "id": 1808,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "2099:10:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_MyStruct_$1804_storage_$dyn_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct[]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1813,
+            "name": "my_struct_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1818,
+            "src": "2140:43:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_MyStruct_$1804_storage_$10_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1810,
+                "name": "MyStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1804,
+                "src": "2140:8:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                  "typeString": "struct StorageMockWithStructs.MyStruct"
+                }
+              },
+              "id": 1812,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1811,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "2149:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "2140:12:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_MyStruct_$1804_storage_$10_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct[10]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1817,
+            "name": "my_struct_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1818,
+            "src": "2187:54:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_MyStruct_$1804_storage_$",
+              "typeString": "mapping(uint256 => struct StorageMockWithStructs.MyStruct)"
+            },
+            "typeName": {
+              "id": 1816,
+              "keyType": {
+                "id": 1814,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "2195:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "2187:28:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_MyStruct_$1804_storage_$",
+                "typeString": "mapping(uint256 => struct StorageMockWithStructs.MyStruct)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1815,
+                "name": "MyStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1804,
+                "src": "2206:8:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                  "typeString": "struct StorageMockWithStructs.MyStruct"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "1923:321:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1835,
+        "linearizedBaseContracts": [
+          1835
+        ],
+        "name": "StorageMockWithEnums",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StorageMockWithEnums.MyEnum",
+            "id": 1821,
+            "members": [
+              {
+                "id": 1819,
+                "name": "State1",
+                "nodeType": "EnumValue",
+                "src": "2294:6:14"
+              },
+              {
+                "id": 1820,
+                "name": "State2",
+                "nodeType": "EnumValue",
+                "src": "2302:6:14"
+              }
+            ],
+            "name": "MyEnum",
+            "nodeType": "EnumDefinition",
+            "src": "2280:30:14"
+          },
+          {
+            "constant": false,
+            "id": 1823,
+            "name": "my_enum",
+            "nodeType": "VariableDeclaration",
+            "scope": 1835,
+            "src": "2315:21:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_MyEnum_$1821",
+              "typeString": "enum StorageMockWithEnums.MyEnum"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1822,
+              "name": "MyEnum",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1821,
+              "src": "2315:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_MyEnum_$1821",
+                "typeString": "enum StorageMockWithEnums.MyEnum"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1826,
+            "name": "my_enum_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1835,
+            "src": "2340:34:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_enum$_MyEnum_$1821_$dyn_storage",
+              "typeString": "enum StorageMockWithEnums.MyEnum[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1824,
+                "name": "MyEnum",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1821,
+                "src": "2340:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_MyEnum_$1821",
+                  "typeString": "enum StorageMockWithEnums.MyEnum"
+                }
+              },
+              "id": 1825,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "2340:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_enum$_MyEnum_$1821_$dyn_storage_ptr",
+                "typeString": "enum StorageMockWithEnums.MyEnum[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1830,
+            "name": "my_enum_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1835,
+            "src": "2378:39:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_enum$_MyEnum_$1821_$10_storage",
+              "typeString": "enum StorageMockWithEnums.MyEnum[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1827,
+                "name": "MyEnum",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1821,
+                "src": "2378:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_MyEnum_$1821",
+                  "typeString": "enum StorageMockWithEnums.MyEnum"
+                }
+              },
+              "id": 1829,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1828,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "2385:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "2378:10:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_enum$_MyEnum_$1821_$10_storage_ptr",
+                "typeString": "enum StorageMockWithEnums.MyEnum[10]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1834,
+            "name": "my_enum_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1835,
+            "src": "2421:50:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_enum$_MyEnum_$1821_$",
+              "typeString": "mapping(uint256 => enum StorageMockWithEnums.MyEnum)"
+            },
+            "typeName": {
+              "id": 1833,
+              "keyType": {
+                "id": 1831,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "2429:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "2421:26:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_enum$_MyEnum_$1821_$",
+                "typeString": "mapping(uint256 => enum StorageMockWithEnums.MyEnum)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1832,
+                "name": "MyEnum",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1821,
+                "src": "2440:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_MyEnum_$1821",
+                  "typeString": "enum StorageMockWithEnums.MyEnum"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "2246:228:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1850,
+        "linearizedBaseContracts": [
+          1850
+        ],
+        "name": "StorageMockWithComplexStructs",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StorageMockWithComplexStructs.MyStruct",
+            "id": 1845,
+            "members": [
+              {
+                "constant": false,
+                "id": 1838,
+                "name": "uint256_dynarray",
+                "nodeType": "VariableDeclaration",
+                "scope": 1845,
+                "src": "2541:26:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 1836,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2541:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1837,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "2541:9:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                    "typeString": "uint256[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1842,
+                "name": "mapping_enums",
+                "nodeType": "VariableDeclaration",
+                "scope": 1845,
+                "src": "2573:60:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_string_memory_$_t_enum$_MyEnum_$1821_$",
+                  "typeString": "mapping(string => enum StorageMockWithEnums.MyEnum)"
+                },
+                "typeName": {
+                  "id": 1841,
+                  "keyType": {
+                    "id": 1839,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2581:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "2573:46:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_string_memory_$_t_enum$_MyEnum_$1821_$",
+                    "typeString": "mapping(string => enum StorageMockWithEnums.MyEnum)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 1840,
+                    "name": "StorageMockWithEnums.MyEnum",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1821,
+                    "src": "2591:27:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_MyEnum_$1821",
+                      "typeString": "enum StorageMockWithEnums.MyEnum"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1844,
+                "name": "other_struct",
+                "nodeType": "VariableDeclaration",
+                "scope": 1845,
+                "src": "2639:44:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                  "typeString": "struct StorageMockWithStructs.MyStruct"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 1843,
+                  "name": "StorageMockWithStructs.MyStruct",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1804,
+                  "src": "2639:31:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                    "typeString": "struct StorageMockWithStructs.MyStruct"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MyStruct",
+            "nodeType": "StructDefinition",
+            "scope": 1850,
+            "src": "2519:169:14",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1847,
+            "name": "my_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1850,
+            "src": "2692:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1845_storage",
+              "typeString": "struct StorageMockWithComplexStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1846,
+              "name": "MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1845,
+              "src": "2692:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1845_storage_ptr",
+                "typeString": "struct StorageMockWithComplexStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1849,
+            "name": "my_other_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1850,
+            "src": "2723:56:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1804_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1848,
+              "name": "StorageMockWithStructs.MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1804,
+              "src": "2723:31:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1868,
+        "src": "2476:306:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1860,
+        "linearizedBaseContracts": [
+          1860
+        ],
+        "name": "StorageMockWithRecursiveStructs",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StorageMockWithRecursiveStructs.MyStruct",
+            "id": 1854,
+            "members": [
+              {
+                "constant": false,
+                "id": 1853,
+                "name": "other_structs",
+                "nodeType": "VariableDeclaration",
+                "scope": 1854,
+                "src": "2851:27:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_OtherStruct_$1857_storage_$dyn_storage_ptr",
+                  "typeString": "struct StorageMockWithRecursiveStructs.OtherStruct[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 1851,
+                    "name": "OtherStruct",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1857,
+                    "src": "2851:11:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_OtherStruct_$1857_storage_ptr",
+                      "typeString": "struct StorageMockWithRecursiveStructs.OtherStruct"
+                    }
+                  },
+                  "id": 1852,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "2851:13:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_OtherStruct_$1857_storage_$dyn_storage_ptr",
+                    "typeString": "struct StorageMockWithRecursiveStructs.OtherStruct[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MyStruct",
+            "nodeType": "StructDefinition",
+            "scope": 1860,
+            "src": "2829:54:14",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StorageMockWithRecursiveStructs.OtherStruct",
+            "id": 1857,
+            "members": [
+              {
+                "constant": false,
+                "id": 1856,
+                "name": "my_struct",
+                "nodeType": "VariableDeclaration",
+                "scope": 1857,
+                "src": "2912:18:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1854_storage_ptr",
+                  "typeString": "struct StorageMockWithRecursiveStructs.MyStruct"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 1855,
+                  "name": "MyStruct",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1854,
+                  "src": "2912:8:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MyStruct_$1854_storage_ptr",
+                    "typeString": "struct StorageMockWithRecursiveStructs.MyStruct"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "OtherStruct",
+            "nodeType": "StructDefinition",
+            "scope": 1860,
+            "src": "2887:48:14",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1859,
+            "name": "my_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1860,
+            "src": "2939:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1854_storage",
+              "typeString": "struct StorageMockWithRecursiveStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1858,
+              "name": "MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1854,
+              "src": "2939:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1854_storage_ptr",
+                "typeString": "struct StorageMockWithRecursiveStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1868,
+        "src": "2784:185:14"
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1861,
+              "name": "StorageMockWithStructs",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1818,
+              "src": "3000:22:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_StorageMockWithStructs_$1818",
+                "typeString": "contract StorageMockWithStructs"
+              }
+            },
+            "id": 1862,
+            "nodeType": "InheritanceSpecifier",
+            "src": "3000:22:14"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1863,
+              "name": "StorageMockWithEnums",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1835,
+              "src": "3024:20:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_StorageMockWithEnums_$1835",
+                "typeString": "contract StorageMockWithEnums"
+              }
+            },
+            "id": 1864,
+            "nodeType": "InheritanceSpecifier",
+            "src": "3024:20:14"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1865,
+              "name": "SimpleStorageMock",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1683,
+              "src": "3046:17:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                "typeString": "contract SimpleStorageMock"
+              }
+            },
+            "id": 1866,
+            "nodeType": "InheritanceSpecifier",
+            "src": "3046:17:14"
+          }
+        ],
+        "contractDependencies": [
+          1683,
+          1818,
+          1835
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1867,
+        "linearizedBaseContracts": [
+          1867,
+          1683,
+          1835,
+          1818
+        ],
+        "name": "StorageMockMixed",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 1868,
+        "src": "2971:96:14"
+      }
+    ],
+    "src": "0:3068:14"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks.sol",
+    "exportedSymbols": {
+      "SimpleStorageMock": [
+        1683
+      ],
+      "StorageMockMixed": [
+        1867
+      ],
+      "StorageMockWithArrays": [
+        1722
+      ],
+      "StorageMockWithBytes": [
+        1690
+      ],
+      "StorageMockWithComplexStructs": [
+        1850
+      ],
+      "StorageMockWithConstants": [
+        1700
+      ],
+      "StorageMockWithContracts": [
+        1797
+      ],
+      "StorageMockWithEnums": [
+        1835
+      ],
+      "StorageMockWithFunctions": [
+        1772
+      ],
+      "StorageMockWithMappings": [
+        1738
+      ],
+      "StorageMockWithRecursiveStructs": [
+        1860
+      ],
+      "StorageMockWithStructs": [
+        1818
+      ]
+    },
+    "id": 1868,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1667,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks3.sol",
+        "file": "./StorageMocks3.sol",
+        "id": 1668,
+        "nodeType": "ImportDirective",
+        "scope": 1868,
+        "sourceUnit": 1942,
+        "src": "72:29:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1683,
+        "linearizedBaseContracts": [
+          1683
+        ],
+        "name": "SimpleStorageMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1670,
+            "name": "my_public_uint256",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "134:32:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1669,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "134:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1672,
+            "name": "my_internal_string",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "170:34:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 1671,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "170:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1674,
+            "name": "my_private_uint8",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "208:30:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 1673,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "208:5:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1676,
+            "name": "my_private_uint16",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "242:30:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_int8",
+              "typeString": "int8"
+            },
+            "typeName": {
+              "id": 1675,
+              "name": "int8",
+              "nodeType": "ElementaryTypeName",
+              "src": "242:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_int8",
+                "typeString": "int8"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1678,
+            "name": "my_private_bool",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "276:28:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 1677,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "276:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1680,
+            "name": "my_private_uint",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "308:28:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1679,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "308:4:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1682,
+            "name": "my_private_address",
+            "nodeType": "VariableDeclaration",
+            "scope": 1683,
+            "src": "340:34:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 1681,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "340:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "103:274:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1690,
+        "linearizedBaseContracts": [
+          1690
+        ],
+        "name": "StorageMockWithBytes",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1685,
+            "name": "my_bytes",
+            "nodeType": "VariableDeclaration",
+            "scope": 1690,
+            "src": "413:23:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes_storage",
+              "typeString": "bytes"
+            },
+            "typeName": {
+              "id": 1684,
+              "name": "bytes",
+              "nodeType": "ElementaryTypeName",
+              "src": "413:5:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes_storage_ptr",
+                "typeString": "bytes"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1687,
+            "name": "my_bytes8",
+            "nodeType": "VariableDeclaration",
+            "scope": 1690,
+            "src": "440:25:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes8",
+              "typeString": "bytes8"
+            },
+            "typeName": {
+              "id": 1686,
+              "name": "bytes8",
+              "nodeType": "ElementaryTypeName",
+              "src": "440:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes8",
+                "typeString": "bytes8"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1689,
+            "name": "my_bytes32",
+            "nodeType": "VariableDeclaration",
+            "scope": 1690,
+            "src": "469:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 1688,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "469:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1868,
+        "src": "379:120:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1700,
+        "linearizedBaseContracts": [
+          1700
+        ],
+        "name": "StorageMockWithConstants",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 1693,
+            "name": "my_public_uint256",
+            "nodeType": "VariableDeclaration",
+            "scope": 1700,
+            "src": "539:47:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1691,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "539:7:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "323536",
+              "id": 1692,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "583:3:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_256_by_1",
+                "typeString": "int_const 256"
+              },
+              "value": "256"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "id": 1696,
+            "name": "my_internal_string",
+            "nodeType": "VariableDeclaration",
+            "scope": 1700,
+            "src": "590:51:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 1694,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "590:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "666f6f",
+              "id": 1695,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "636:5:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_41b1a0649752af1b28b3dc29a1556eee781e4a4c3a1f7f53f90fa834de098c4d",
+                "typeString": "literal_string \"foo\""
+              },
+              "value": "foo"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 1699,
+            "name": "my_private_uint8",
+            "nodeType": "VariableDeclaration",
+            "scope": 1700,
+            "src": "645:43:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 1697,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "645:5:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "38",
+              "id": 1698,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "687:1:14",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_8_by_1",
+                "typeString": "int_const 8"
+              },
+              "value": "8"
+            },
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "501:190:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1722,
+        "linearizedBaseContracts": [
+          1722
+        ],
+        "name": "StorageMockWithArrays",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1703,
+            "name": "my_public_uint256_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "728:43:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
+              "typeString": "uint256[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1701,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "728:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "id": 1702,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "728:9:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                "typeString": "uint256[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1706,
+            "name": "my_internal_string_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "775:45:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+              "typeString": "string[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1704,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "775:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "id": 1705,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "775:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                "typeString": "string[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1709,
+            "name": "my_private_address_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "824:45:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_$dyn_storage",
+              "typeString": "address[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1707,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "824:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "id": 1708,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "824:9:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                "typeString": "address[]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1713,
+            "name": "my_public_int8_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "873:42:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_int8_$10_storage",
+              "typeString": "int8[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1710,
+                "name": "int8",
+                "nodeType": "ElementaryTypeName",
+                "src": "873:4:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int8",
+                  "typeString": "int8"
+                }
+              },
+              "id": 1712,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1711,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "878:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "873:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_int8_$10_storage_ptr",
+                "typeString": "int8[10]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1717,
+            "name": "my_internal_bool_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "919:46:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_bool_$20_storage",
+              "typeString": "bool[20]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1714,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "919:4:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              },
+              "id": 1716,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3230",
+                "id": 1715,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "924:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "20"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "919:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_bool_$20_storage_ptr",
+                "typeString": "bool[20]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1721,
+            "name": "my_private_uint_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1722,
+            "src": "969:44:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_uint256_$30_storage",
+              "typeString": "uint256[30]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1718,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "969:4:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "id": 1720,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3330",
+                "id": 1719,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "974:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "30"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "969:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_uint256_$30_storage_ptr",
+                "typeString": "uint256[30]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "693:323:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1738,
+        "linearizedBaseContracts": [
+          1738
+        ],
+        "name": "StorageMockWithMappings",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1726,
+            "name": "my_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "1055:44:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+              "typeString": "mapping(uint256 => string)"
+            },
+            "typeName": {
+              "id": 1725,
+              "keyType": {
+                "id": 1723,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1063:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1055:26:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+                "typeString": "mapping(uint256 => string)"
+              },
+              "valueType": {
+                "id": 1724,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "1074:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1732,
+            "name": "my_nested_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "1103:73:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_mapping$_t_string_memory_$_t_address_$_$",
+              "typeString": "mapping(uint256 => mapping(string => address))"
+            },
+            "typeName": {
+              "id": 1731,
+              "keyType": {
+                "id": 1727,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1111:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1103:46:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_mapping$_t_string_memory_$_t_address_$_$",
+                "typeString": "mapping(uint256 => mapping(string => address))"
+              },
+              "valueType": {
+                "id": 1730,
+                "keyType": {
+                  "id": 1728,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1130:6:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "1122:26:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_string_memory_$_t_address_$",
+                  "typeString": "mapping(string => address)"
+                },
+                "valueType": {
+                  "id": 1729,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1140:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1737,
+            "name": "my_mapping_with_arrays",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "1180:57:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_bool_$dyn_storage_$",
+              "typeString": "mapping(uint256 => bool[])"
+            },
+            "typeName": {
+              "id": 1736,
+              "keyType": {
+                "id": 1733,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1188:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1180:26:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_bool_$dyn_storage_$",
+                "typeString": "mapping(uint256 => bool[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 1734,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1199:4:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "id": 1735,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "1199:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_bool_$dyn_storage_ptr",
+                  "typeString": "bool[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "1018:222:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1772,
+        "linearizedBaseContracts": [
+          1772
+        ],
+        "name": "StorageMockWithFunctions",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1744,
+            "name": "my_fun",
+            "nodeType": "VariableDeclaration",
+            "scope": 1772,
+            "src": "1280:30:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+              "typeString": "function (uint256)"
+            },
+            "typeName": {
+              "id": 1743,
+              "isDeclaredConst": false,
+              "nodeType": "FunctionTypeName",
+              "parameterTypes": {
+                "id": 1741,
+                "nodeType": "ParameterList",
+                "parameters": [
+                  {
+                    "constant": false,
+                    "id": 1740,
+                    "name": "",
+                    "nodeType": "VariableDeclaration",
+                    "scope": 1772,
+                    "src": "1289:4:14",
+                    "stateVariable": false,
+                    "storageLocation": "default",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "typeName": {
+                      "id": 1739,
+                      "name": "uint",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1289:4:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "value": null,
+                    "visibility": "internal"
+                  }
+                ],
+                "src": "1288:6:14"
+              },
+              "payable": false,
+              "returnParameterTypes": {
+                "id": 1742,
+                "nodeType": "ParameterList",
+                "parameters": [],
+                "src": "1304:0:14"
+              },
+              "src": "1280:30:14",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                "typeString": "function (uint256)"
+              },
+              "visibility": "internal"
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1753,
+            "name": "my_fun_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1772,
+            "src": "1314:51:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_function_internal_nonpayable$_t_string_storage_ptr_$_t_string_storage_ptr_$returns$__$_$dyn_storage",
+              "typeString": "function (string,string)[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1751,
+                "isDeclaredConst": false,
+                "nodeType": "FunctionTypeName",
+                "parameterTypes": {
+                  "id": 1749,
+                  "nodeType": "ParameterList",
+                  "parameters": [
+                    {
+                      "constant": false,
+                      "id": 1746,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1323:6:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      },
+                      "typeName": {
+                        "id": 1745,
+                        "name": "string",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1323:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage_ptr",
+                          "typeString": "string"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 1748,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1331:6:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      },
+                      "typeName": {
+                        "id": 1747,
+                        "name": "string",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1331:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage_ptr",
+                          "typeString": "string"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "src": "1322:16:14"
+                },
+                "payable": false,
+                "returnParameterTypes": {
+                  "id": 1750,
+                  "nodeType": "ParameterList",
+                  "parameters": [],
+                  "src": "1338:0:14"
+                },
+                "src": "1314:25:14",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_internal_nonpayable$_t_string_storage_ptr_$_t_string_storage_ptr_$returns$__$",
+                  "typeString": "function (string,string)"
+                },
+                "visibility": "internal"
+              },
+              "id": 1752,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "1314:26:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_function_internal_nonpayable$_t_string_storage_ptr_$_t_string_storage_ptr_$returns$__$_$dyn_storage_ptr",
+                "typeString": "function (string,string)[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1763,
+            "name": "my_fun_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1772,
+            "src": "1369:64:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_function_internal_nonpayable$_t_uint256_$returns$_t_address_$_$10_storage",
+              "typeString": "function (uint256) returns (address)[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 1760,
+                "isDeclaredConst": false,
+                "nodeType": "FunctionTypeName",
+                "parameterTypes": {
+                  "id": 1756,
+                  "nodeType": "ParameterList",
+                  "parameters": [
+                    {
+                      "constant": false,
+                      "id": 1755,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1378:4:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 1754,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1378:4:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "src": "1377:6:14"
+                },
+                "payable": false,
+                "returnParameterTypes": {
+                  "id": 1759,
+                  "nodeType": "ParameterList",
+                  "parameters": [
+                    {
+                      "constant": false,
+                      "id": 1758,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1393:7:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 1757,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1393:7:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "src": "1392:9:14"
+                },
+                "src": "1369:33:14",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$_t_address_$",
+                  "typeString": "function (uint256) returns (address)"
+                },
+                "visibility": "internal"
+              },
+              "id": 1762,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1761,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "1402:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "1369:36:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_function_internal_nonpayable$_t_uint256_$returns$_t_address_$_$10_storage_ptr",
+                "typeString": "function (uint256) returns (address)[10]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1771,
+            "name": "my_fun_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1772,
+            "src": "1437:58:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_function_internal_nonpayable$_t_bool_$returns$__$_$",
+              "typeString": "mapping(uint256 => function (bool))"
+            },
+            "typeName": {
+              "id": 1770,
+              "keyType": {
+                "id": 1764,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1445:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1437:34:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_function_internal_nonpayable$_t_bool_$returns$__$_$",
+                "typeString": "mapping(uint256 => function (bool))"
+              },
+              "valueType": {
+                "id": 1769,
+                "isDeclaredConst": false,
+                "nodeType": "FunctionTypeName",
+                "parameterTypes": {
+                  "id": 1767,
+                  "nodeType": "ParameterList",
+                  "parameters": [
+                    {
+                      "constant": false,
+                      "id": 1766,
+                      "name": "",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1772,
+                      "src": "1465:4:14",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "typeName": {
+                        "id": 1765,
+                        "name": "bool",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1465:4:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "src": "1464:6:14"
+                },
+                "payable": false,
+                "returnParameterTypes": {
+                  "id": 1768,
+                  "nodeType": "ParameterList",
+                  "parameters": [],
+                  "src": "1470:0:14"
+                },
+                "src": "1456:15:14",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_internal_nonpayable$_t_bool_$returns$__$",
+                  "typeString": "function (bool)"
+                },
+                "visibility": "internal"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1868,
+        "src": "1242:256:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1797,
+        "linearizedBaseContracts": [
+          1797
+        ],
+        "name": "StorageMockWithContracts",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1774,
+            "name": "my_contract",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1538:36:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+              "typeString": "contract SimpleStorageMock"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1773,
+              "name": "SimpleStorageMock",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1683,
+              "src": "1538:17:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                "typeString": "contract SimpleStorageMock"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1777,
+            "name": "my_contract_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1578:48:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage",
+              "typeString": "contract SimpleStorageMock[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1775,
+                "name": "SimpleStorageMock",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1683,
+                "src": "1578:17:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                  "typeString": "contract SimpleStorageMock"
+                }
+              },
+              "id": 1776,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "1578:19:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage_ptr",
+                "typeString": "contract SimpleStorageMock[]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1781,
+            "name": "my_contract_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1630:54:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage",
+              "typeString": "contract SimpleStorageMock[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1778,
+                "name": "SimpleStorageMock",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1683,
+                "src": "1630:17:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                  "typeString": "contract SimpleStorageMock"
+                }
+              },
+              "id": 1780,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1779,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "1648:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "1630:21:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage_ptr",
+                "typeString": "contract SimpleStorageMock[10]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1785,
+            "name": "my_contract_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1688:65:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_contract$_SimpleStorageMock_$1683_$",
+              "typeString": "mapping(uint256 => contract SimpleStorageMock)"
+            },
+            "typeName": {
+              "id": 1784,
+              "keyType": {
+                "id": 1782,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1696:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1688:37:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_contract$_SimpleStorageMock_$1683_$",
+                "typeString": "mapping(uint256 => contract SimpleStorageMock)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1783,
+                "name": "SimpleStorageMock",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1683,
+                "src": "1707:17:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                  "typeString": "contract SimpleStorageMock"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1790,
+            "name": "my_contract_dynarray_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1757:76:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage_$",
+              "typeString": "mapping(uint256 => contract SimpleStorageMock[])"
+            },
+            "typeName": {
+              "id": 1789,
+              "keyType": {
+                "id": 1786,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1765:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1757:39:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage_$",
+                "typeString": "mapping(uint256 => contract SimpleStorageMock[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "contractScope": null,
+                  "id": 1787,
+                  "name": "SimpleStorageMock",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1683,
+                  "src": "1776:17:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                    "typeString": "contract SimpleStorageMock"
+                  }
+                },
+                "id": 1788,
+                "length": null,
+                "nodeType": "ArrayTypeName",
+                "src": "1776:19:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$dyn_storage_ptr",
+                  "typeString": "contract SimpleStorageMock[]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1796,
+            "name": "my_contract_staticarray_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1797,
+            "src": "1837:81:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage_$",
+              "typeString": "mapping(uint256 => contract SimpleStorageMock[10])"
+            },
+            "typeName": {
+              "id": 1795,
+              "keyType": {
+                "id": 1791,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1845:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1837:41:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage_$",
+                "typeString": "mapping(uint256 => contract SimpleStorageMock[10])"
+              },
+              "valueType": {
+                "baseType": {
+                  "contractScope": null,
+                  "id": 1792,
+                  "name": "SimpleStorageMock",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1683,
+                  "src": "1856:17:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                    "typeString": "contract SimpleStorageMock"
+                  }
+                },
+                "id": 1794,
+                "length": {
+                  "argumentTypes": null,
+                  "hexValue": "3130",
+                  "id": 1793,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": false,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "1874:2:14",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": null,
+                    "typeString": null
+                  },
+                  "value": "10"
+                },
+                "nodeType": "ArrayTypeName",
+                "src": "1856:21:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_contract$_SimpleStorageMock_$1683_$10_storage_ptr",
+                  "typeString": "contract SimpleStorageMock[10]"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "1500:421:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1818,
+        "linearizedBaseContracts": [
+          1818
+        ],
+        "name": "StorageMockWithStructs",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StorageMockWithStructs.MyStruct",
+            "id": 1804,
+            "members": [
+              {
+                "constant": false,
+                "id": 1799,
+                "name": "struct_uint256",
+                "nodeType": "VariableDeclaration",
+                "scope": 1804,
+                "src": "1981:22:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1798,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1981:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1801,
+                "name": "struct_string",
+                "nodeType": "VariableDeclaration",
+                "scope": 1804,
+                "src": "2009:20:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1800,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2009:6:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1803,
+                "name": "struct_address",
+                "nodeType": "VariableDeclaration",
+                "scope": 1804,
+                "src": "2035:22:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1802,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2035:7:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MyStruct",
+            "nodeType": "StructDefinition",
+            "scope": 1818,
+            "src": "1959:103:14",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1806,
+            "name": "my_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1818,
+            "src": "2068:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1804_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1805,
+              "name": "MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1804,
+              "src": "2068:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1809,
+            "name": "my_struct_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1818,
+            "src": "2099:37:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_MyStruct_$1804_storage_$dyn_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1807,
+                "name": "MyStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1804,
+                "src": "2099:8:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                  "typeString": "struct StorageMockWithStructs.MyStruct"
+                }
+              },
+              "id": 1808,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "2099:10:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_MyStruct_$1804_storage_$dyn_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct[]"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 1813,
+            "name": "my_struct_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1818,
+            "src": "2140:43:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_MyStruct_$1804_storage_$10_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1810,
+                "name": "MyStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1804,
+                "src": "2140:8:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                  "typeString": "struct StorageMockWithStructs.MyStruct"
+                }
+              },
+              "id": 1812,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1811,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "2149:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "2140:12:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_MyStruct_$1804_storage_$10_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct[10]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1817,
+            "name": "my_struct_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1818,
+            "src": "2187:54:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_MyStruct_$1804_storage_$",
+              "typeString": "mapping(uint256 => struct StorageMockWithStructs.MyStruct)"
+            },
+            "typeName": {
+              "id": 1816,
+              "keyType": {
+                "id": 1814,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "2195:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "2187:28:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_MyStruct_$1804_storage_$",
+                "typeString": "mapping(uint256 => struct StorageMockWithStructs.MyStruct)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1815,
+                "name": "MyStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1804,
+                "src": "2206:8:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                  "typeString": "struct StorageMockWithStructs.MyStruct"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "1923:321:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1835,
+        "linearizedBaseContracts": [
+          1835
+        ],
+        "name": "StorageMockWithEnums",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StorageMockWithEnums.MyEnum",
+            "id": 1821,
+            "members": [
+              {
+                "id": 1819,
+                "name": "State1",
+                "nodeType": "EnumValue",
+                "src": "2294:6:14"
+              },
+              {
+                "id": 1820,
+                "name": "State2",
+                "nodeType": "EnumValue",
+                "src": "2302:6:14"
+              }
+            ],
+            "name": "MyEnum",
+            "nodeType": "EnumDefinition",
+            "src": "2280:30:14"
+          },
+          {
+            "constant": false,
+            "id": 1823,
+            "name": "my_enum",
+            "nodeType": "VariableDeclaration",
+            "scope": 1835,
+            "src": "2315:21:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_MyEnum_$1821",
+              "typeString": "enum StorageMockWithEnums.MyEnum"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1822,
+              "name": "MyEnum",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1821,
+              "src": "2315:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_MyEnum_$1821",
+                "typeString": "enum StorageMockWithEnums.MyEnum"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1826,
+            "name": "my_enum_dynarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1835,
+            "src": "2340:34:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_enum$_MyEnum_$1821_$dyn_storage",
+              "typeString": "enum StorageMockWithEnums.MyEnum[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1824,
+                "name": "MyEnum",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1821,
+                "src": "2340:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_MyEnum_$1821",
+                  "typeString": "enum StorageMockWithEnums.MyEnum"
+                }
+              },
+              "id": 1825,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "2340:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_enum$_MyEnum_$1821_$dyn_storage_ptr",
+                "typeString": "enum StorageMockWithEnums.MyEnum[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1830,
+            "name": "my_enum_staticarray",
+            "nodeType": "VariableDeclaration",
+            "scope": 1835,
+            "src": "2378:39:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_enum$_MyEnum_$1821_$10_storage",
+              "typeString": "enum StorageMockWithEnums.MyEnum[10]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 1827,
+                "name": "MyEnum",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1821,
+                "src": "2378:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_MyEnum_$1821",
+                  "typeString": "enum StorageMockWithEnums.MyEnum"
+                }
+              },
+              "id": 1829,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "3130",
+                "id": 1828,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "2385:2:14",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": null,
+                  "typeString": null
+                },
+                "value": "10"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "2378:10:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_enum$_MyEnum_$1821_$10_storage_ptr",
+                "typeString": "enum StorageMockWithEnums.MyEnum[10]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1834,
+            "name": "my_enum_mapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1835,
+            "src": "2421:50:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_enum$_MyEnum_$1821_$",
+              "typeString": "mapping(uint256 => enum StorageMockWithEnums.MyEnum)"
+            },
+            "typeName": {
+              "id": 1833,
+              "keyType": {
+                "id": 1831,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "2429:7:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "2421:26:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_enum$_MyEnum_$1821_$",
+                "typeString": "mapping(uint256 => enum StorageMockWithEnums.MyEnum)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 1832,
+                "name": "MyEnum",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 1821,
+                "src": "2440:6:14",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_MyEnum_$1821",
+                  "typeString": "enum StorageMockWithEnums.MyEnum"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          }
+        ],
+        "scope": 1868,
+        "src": "2246:228:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1850,
+        "linearizedBaseContracts": [
+          1850
+        ],
+        "name": "StorageMockWithComplexStructs",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StorageMockWithComplexStructs.MyStruct",
+            "id": 1845,
+            "members": [
+              {
+                "constant": false,
+                "id": 1838,
+                "name": "uint256_dynarray",
+                "nodeType": "VariableDeclaration",
+                "scope": 1845,
+                "src": "2541:26:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 1836,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2541:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1837,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "2541:9:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                    "typeString": "uint256[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1842,
+                "name": "mapping_enums",
+                "nodeType": "VariableDeclaration",
+                "scope": 1845,
+                "src": "2573:60:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_string_memory_$_t_enum$_MyEnum_$1821_$",
+                  "typeString": "mapping(string => enum StorageMockWithEnums.MyEnum)"
+                },
+                "typeName": {
+                  "id": 1841,
+                  "keyType": {
+                    "id": 1839,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2581:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "2573:46:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_string_memory_$_t_enum$_MyEnum_$1821_$",
+                    "typeString": "mapping(string => enum StorageMockWithEnums.MyEnum)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 1840,
+                    "name": "StorageMockWithEnums.MyEnum",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1821,
+                    "src": "2591:27:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_MyEnum_$1821",
+                      "typeString": "enum StorageMockWithEnums.MyEnum"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1844,
+                "name": "other_struct",
+                "nodeType": "VariableDeclaration",
+                "scope": 1845,
+                "src": "2639:44:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                  "typeString": "struct StorageMockWithStructs.MyStruct"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 1843,
+                  "name": "StorageMockWithStructs.MyStruct",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1804,
+                  "src": "2639:31:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                    "typeString": "struct StorageMockWithStructs.MyStruct"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MyStruct",
+            "nodeType": "StructDefinition",
+            "scope": 1850,
+            "src": "2519:169:14",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1847,
+            "name": "my_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1850,
+            "src": "2692:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1845_storage",
+              "typeString": "struct StorageMockWithComplexStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1846,
+              "name": "MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1845,
+              "src": "2692:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1845_storage_ptr",
+                "typeString": "struct StorageMockWithComplexStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1849,
+            "name": "my_other_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1850,
+            "src": "2723:56:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1804_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1848,
+              "name": "StorageMockWithStructs.MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1804,
+              "src": "2723:31:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1868,
+        "src": "2476:306:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1860,
+        "linearizedBaseContracts": [
+          1860
+        ],
+        "name": "StorageMockWithRecursiveStructs",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "StorageMockWithRecursiveStructs.MyStruct",
+            "id": 1854,
+            "members": [
+              {
+                "constant": false,
+                "id": 1853,
+                "name": "other_structs",
+                "nodeType": "VariableDeclaration",
+                "scope": 1854,
+                "src": "2851:27:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_OtherStruct_$1857_storage_$dyn_storage_ptr",
+                  "typeString": "struct StorageMockWithRecursiveStructs.OtherStruct[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 1851,
+                    "name": "OtherStruct",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1857,
+                    "src": "2851:11:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_OtherStruct_$1857_storage_ptr",
+                      "typeString": "struct StorageMockWithRecursiveStructs.OtherStruct"
+                    }
+                  },
+                  "id": 1852,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "2851:13:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_OtherStruct_$1857_storage_$dyn_storage_ptr",
+                    "typeString": "struct StorageMockWithRecursiveStructs.OtherStruct[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MyStruct",
+            "nodeType": "StructDefinition",
+            "scope": 1860,
+            "src": "2829:54:14",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "StorageMockWithRecursiveStructs.OtherStruct",
+            "id": 1857,
+            "members": [
+              {
+                "constant": false,
+                "id": 1856,
+                "name": "my_struct",
+                "nodeType": "VariableDeclaration",
+                "scope": 1857,
+                "src": "2912:18:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MyStruct_$1854_storage_ptr",
+                  "typeString": "struct StorageMockWithRecursiveStructs.MyStruct"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 1855,
+                  "name": "MyStruct",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 1854,
+                  "src": "2912:8:14",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_MyStruct_$1854_storage_ptr",
+                    "typeString": "struct StorageMockWithRecursiveStructs.MyStruct"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "OtherStruct",
+            "nodeType": "StructDefinition",
+            "scope": 1860,
+            "src": "2887:48:14",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 1859,
+            "name": "my_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1860,
+            "src": "2939:27:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1854_storage",
+              "typeString": "struct StorageMockWithRecursiveStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1858,
+              "name": "MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1854,
+              "src": "2939:8:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1854_storage_ptr",
+                "typeString": "struct StorageMockWithRecursiveStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1868,
+        "src": "2784:185:14"
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1861,
+              "name": "StorageMockWithStructs",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1818,
+              "src": "3000:22:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_StorageMockWithStructs_$1818",
+                "typeString": "contract StorageMockWithStructs"
+              }
+            },
+            "id": 1862,
+            "nodeType": "InheritanceSpecifier",
+            "src": "3000:22:14"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1863,
+              "name": "StorageMockWithEnums",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1835,
+              "src": "3024:20:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_StorageMockWithEnums_$1835",
+                "typeString": "contract StorageMockWithEnums"
+              }
+            },
+            "id": 1864,
+            "nodeType": "InheritanceSpecifier",
+            "src": "3024:20:14"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1865,
+              "name": "SimpleStorageMock",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1683,
+              "src": "3046:17:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                "typeString": "contract SimpleStorageMock"
+              }
+            },
+            "id": 1866,
+            "nodeType": "InheritanceSpecifier",
+            "src": "3046:17:14"
+          }
+        ],
+        "contractDependencies": [
+          1683,
+          1818,
+          1835
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1867,
+        "linearizedBaseContracts": [
+          1867,
+          1683,
+          1835,
+          1818
+        ],
+        "name": "StorageMockMixed",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 1868,
+        "src": "2971:96:14"
+      }
+    ],
+    "src": "0:3068:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2019-01-10T18:46:07.241Z"
+}

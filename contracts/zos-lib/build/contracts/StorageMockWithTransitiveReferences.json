@@ -1,0 +1,289 @@
+{
+  "contractName": "StorageMockWithTransitiveReferences",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a7230582076436484eed670fa2c21f7e8cdcd61e72cec364430cb7cbf6f5a270d1d8b6b6b0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a7230582076436484eed670fa2c21f7e8cdcd61e72cec364430cb7cbf6f5a270d1d8b6b6b0029",
+  "sourceMap": "57:192:16:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;57:192:16;;;;;;;",
+  "deployedSourceMap": "57:192:16:-;;;;;",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"./StorageMocks2.sol\";\n\ncontract StorageMockWithTransitiveReferences {\n  StorageMockWithEnums.MyEnum internal my_enum;\n  StorageMockWithStructs.MyStruct internal my_struct;\n  SimpleStorageMock internal my_contract;\n}\n",
+  "sourcePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks3.sol",
+  "ast": {
+    "absolutePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks3.sol",
+    "exportedSymbols": {
+      "StorageMockWithTransitiveReferences": [
+        1941
+      ]
+    },
+    "id": 1942,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1933,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:16"
+      },
+      {
+        "absolutePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks2.sol",
+        "file": "./StorageMocks2.sol",
+        "id": 1934,
+        "nodeType": "ImportDirective",
+        "scope": 1942,
+        "sourceUnit": 1932,
+        "src": "26:29:16",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1941,
+        "linearizedBaseContracts": [
+          1941
+        ],
+        "name": "StorageMockWithTransitiveReferences",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1936,
+            "name": "my_enum",
+            "nodeType": "VariableDeclaration",
+            "scope": 1941,
+            "src": "106:44:16",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_MyEnum_$1821",
+              "typeString": "enum StorageMockWithEnums.MyEnum"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1935,
+              "name": "StorageMockWithEnums.MyEnum",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1821,
+              "src": "106:27:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_MyEnum_$1821",
+                "typeString": "enum StorageMockWithEnums.MyEnum"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1938,
+            "name": "my_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1941,
+            "src": "154:50:16",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1804_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1937,
+              "name": "StorageMockWithStructs.MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1804,
+              "src": "154:31:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1940,
+            "name": "my_contract",
+            "nodeType": "VariableDeclaration",
+            "scope": 1941,
+            "src": "208:38:16",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+              "typeString": "contract SimpleStorageMock"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1939,
+              "name": "SimpleStorageMock",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1683,
+              "src": "208:17:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                "typeString": "contract SimpleStorageMock"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1942,
+        "src": "57:192:16"
+      }
+    ],
+    "src": "0:250:16"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks3.sol",
+    "exportedSymbols": {
+      "StorageMockWithTransitiveReferences": [
+        1941
+      ]
+    },
+    "id": 1942,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1933,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:16"
+      },
+      {
+        "absolutePath": "/Users/facu/Documents/Laburo/Zeppelin/ZeppelinOS/zos/packages/lib/contracts/mocks/StorageMocks2.sol",
+        "file": "./StorageMocks2.sol",
+        "id": 1934,
+        "nodeType": "ImportDirective",
+        "scope": 1942,
+        "sourceUnit": 1932,
+        "src": "26:29:16",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1941,
+        "linearizedBaseContracts": [
+          1941
+        ],
+        "name": "StorageMockWithTransitiveReferences",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1936,
+            "name": "my_enum",
+            "nodeType": "VariableDeclaration",
+            "scope": 1941,
+            "src": "106:44:16",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_MyEnum_$1821",
+              "typeString": "enum StorageMockWithEnums.MyEnum"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1935,
+              "name": "StorageMockWithEnums.MyEnum",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1821,
+              "src": "106:27:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_MyEnum_$1821",
+                "typeString": "enum StorageMockWithEnums.MyEnum"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1938,
+            "name": "my_struct",
+            "nodeType": "VariableDeclaration",
+            "scope": 1941,
+            "src": "154:50:16",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_MyStruct_$1804_storage",
+              "typeString": "struct StorageMockWithStructs.MyStruct"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1937,
+              "name": "StorageMockWithStructs.MyStruct",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1804,
+              "src": "154:31:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_MyStruct_$1804_storage_ptr",
+                "typeString": "struct StorageMockWithStructs.MyStruct"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 1940,
+            "name": "my_contract",
+            "nodeType": "VariableDeclaration",
+            "scope": 1941,
+            "src": "208:38:16",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+              "typeString": "contract SimpleStorageMock"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1939,
+              "name": "SimpleStorageMock",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1683,
+              "src": "208:17:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SimpleStorageMock_$1683",
+                "typeString": "contract SimpleStorageMock"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1942,
+        "src": "57:192:16"
+      }
+    ],
+    "src": "0:250:16"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2019-01-10T18:46:07.246Z"
+}

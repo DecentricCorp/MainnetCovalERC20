@@ -1,0 +1,215 @@
+{
+  "contractName": "DependencyStorageMock",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820fbb699566176d21f32fcb37845b8469fbf7b685f1b105e701ad73e8ffb03e61c0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820fbb699566176d21f32fcb37845b8469fbf7b685f1b105e701ad73e8ffb03e61c0029",
+  "sourceMap": "26:104:24:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:104:24;;;;;;;",
+  "deployedSourceMap": "26:104:24:-;;;;;",
+  "source": "pragma solidity ^0.4.24;\n\ncontract DependencyStorageMock {\n  enum MyEnum { State1, State2 }\n  struct MyStruct { uint256 value; }\n}",
+  "sourcePath": "mock-dependency/contracts/DependencyStorageMock.sol",
+  "ast": {
+    "absolutePath": "mock-dependency/contracts/DependencyStorageMock.sol",
+    "exportedSymbols": {
+      "DependencyStorageMock": [
+        2498
+      ]
+    },
+    "id": 2499,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2491,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:24"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2498,
+        "linearizedBaseContracts": [
+          2498
+        ],
+        "name": "DependencyStorageMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "DependencyStorageMock.MyEnum",
+            "id": 2494,
+            "members": [
+              {
+                "id": 2492,
+                "name": "State1",
+                "nodeType": "EnumValue",
+                "src": "75:6:24"
+              },
+              {
+                "id": 2493,
+                "name": "State2",
+                "nodeType": "EnumValue",
+                "src": "83:6:24"
+              }
+            ],
+            "name": "MyEnum",
+            "nodeType": "EnumDefinition",
+            "src": "61:30:24"
+          },
+          {
+            "canonicalName": "DependencyStorageMock.MyStruct",
+            "id": 2497,
+            "members": [
+              {
+                "constant": false,
+                "id": 2496,
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "scope": 2497,
+                "src": "112:13:24",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2495,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:7:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MyStruct",
+            "nodeType": "StructDefinition",
+            "scope": 2498,
+            "src": "94:34:24",
+            "visibility": "public"
+          }
+        ],
+        "scope": 2499,
+        "src": "26:104:24"
+      }
+    ],
+    "src": "0:130:24"
+  },
+  "legacyAST": {
+    "absolutePath": "mock-dependency/contracts/DependencyStorageMock.sol",
+    "exportedSymbols": {
+      "DependencyStorageMock": [
+        2498
+      ]
+    },
+    "id": 2499,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2491,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:24"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2498,
+        "linearizedBaseContracts": [
+          2498
+        ],
+        "name": "DependencyStorageMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "DependencyStorageMock.MyEnum",
+            "id": 2494,
+            "members": [
+              {
+                "id": 2492,
+                "name": "State1",
+                "nodeType": "EnumValue",
+                "src": "75:6:24"
+              },
+              {
+                "id": 2493,
+                "name": "State2",
+                "nodeType": "EnumValue",
+                "src": "83:6:24"
+              }
+            ],
+            "name": "MyEnum",
+            "nodeType": "EnumDefinition",
+            "src": "61:30:24"
+          },
+          {
+            "canonicalName": "DependencyStorageMock.MyStruct",
+            "id": 2497,
+            "members": [
+              {
+                "constant": false,
+                "id": 2496,
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "scope": 2497,
+                "src": "112:13:24",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2495,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:7:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "MyStruct",
+            "nodeType": "StructDefinition",
+            "scope": 2498,
+            "src": "94:34:24",
+            "visibility": "public"
+          }
+        ],
+        "scope": 2499,
+        "src": "26:104:24"
+      }
+    ],
+    "src": "0:130:24"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2019-01-10T18:46:07.256Z"
+}
